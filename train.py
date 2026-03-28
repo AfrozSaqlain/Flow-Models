@@ -6,6 +6,9 @@ import torch.optim as optim
 import tqdm
 from sample import sampled_points
 from fm import MLP
+#from matplotlib.animation import FFMpegWriter
+from matplotlib.animation import PillowWriter
+
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -73,5 +76,9 @@ def update(frame):
     return scat,
 
 anim = FuncAnimation(fig, update, frames=len(trajectory), interval=50)
+
+anim.save("flow.gif", writer=PillowWriter(fps=30))
+#anim.save("flow.mp4", writer=FFMpegWriter(fps=20))
+
 plt.tight_layout()
 plt.show()

@@ -52,3 +52,6 @@ The model is a Multi-Layer Perceptron (MLP) with two critical features:
 1. **Install Dependencies:** `pip install torch matplotlib tqdm numpy`
 2. **Train & Visualize:** `python train.py`
    - This will train the model for 100,000 steps and then display an animation of the noise transforming into the checkerboard.
+
+## Result
+![Flow Animation](flow.gif)
