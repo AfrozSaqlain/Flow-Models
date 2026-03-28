@@ -28,7 +28,7 @@ The neural network $v_\theta(x_t, t)$ is trained to regress directly onto this c
 ### 3. Model Architecture (`fm.py`)
 The model is a Multi-Layer Perceptron (MLP) with two critical features:
 - **Sinusoidal Time Embeddings:** Maps the scalar time $t$ into a high-dimensional vector using sine/cosine phases. This allows the network to "understand" its position along the flow path with high precision.
-- **Residual Connections ($y = x + f(x)$):** These act as "gradient highways," preventing the vanishing gradient problem. More importantly, they bias the network toward learning incremental updates, which is the discrete equivalent of the continuous ODE steps we solve during inference.
+- **Residual Connections** $(y = x + f(x)$: These act as "gradient highways," preventing the vanishing gradient problem. More importantly, they bias the network toward learning incremental updates, which is the discrete equivalent of the continuous ODE steps we solve during inference.
 
 ---
 

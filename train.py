@@ -75,7 +75,9 @@ def update(frame):
     axes[1].set_title(f"Step {frame}")
     return scat,
 
-anim = FuncAnimation(fig, update, frames=len(trajectory), interval=50)
+# Add 3 seconds (30 fps * 3 sec = 90 frames) of the last frame to show complete transformation
+total_frames = list(range(len(trajectory))) + [len(trajectory) - 1] * 90
+anim = FuncAnimation(fig, update, frames=total_frames, interval=50)
 
 anim.save("flow.gif", writer=PillowWriter(fps=30))
 #anim.save("flow.mp4", writer=FFMpegWriter(fps=20))
