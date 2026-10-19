@@ -10,7 +10,7 @@ from fm import MLP
 from matplotlib.animation import PillowWriter
 
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu')
 
 model = MLP(layers=5, channels=512).to(device)
 optimizer = optim.AdamW(model.parameters(), lr=1e-4)
